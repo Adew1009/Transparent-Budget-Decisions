@@ -18,6 +18,7 @@ import { AccordionElement } from "@/components/Accordion";
 import BudgetItem from "@/components/BudgetItem";
 import LineChart from "@/components/LineChart";
 import CalendarChart from "@/components/CalendarChart";
+import Calendar from "react-calendar";
 
 const Dashboard = () => {
   const [user, loading] = useAuthState(auth);
@@ -255,7 +256,7 @@ const Dashboard = () => {
     if (monthlyExpenses) {
       console.log(`Monthly expenses: ${monthlyExpenses}`);
       const monthlyExpenseData = monthlyExpenses.map((item) => ({
-        transactionDate: item.newTransactionDate,
+        transactionDayOfTheMonth: parseInt(item.newTransactionDate.split("-")[2]),
         transactionName: item.newTransactionName,
         transactionAmount: item.newTransactionAmount,
       }));
@@ -264,7 +265,20 @@ const Dashboard = () => {
     }
   };
   console.log("***MONTHLY CALENDER***", monthlyCalendar);
-  // console.log("***MONTHLY CALENDER 2***", monthlyCalendar)
+  console.log("***MONTHLY CALENDER 2***", monthlyCalendar)
+
+  const tileContent = ({ date }) => {
+    const dayOfTheMonth = date.getDate();
+    const bill = monthlyCalendar.find((bill) => bill.transactionDayOfTheMonth === dayOfTheMonth);
+    if (bill) {
+      return (
+        <p>
+          {bill.transactionName}: ${bill.transactionAmount}
+        </p>
+      );
+    }
+    return null;
+  }
 
   useEffect(() => {
     if (!firstRenderRef.current) {
@@ -276,6 +290,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (user) {
       getAccountList(); // Call getAccountList on initial render or when user changes
+      // monthlyCalendarfunction();
     }
   }, [user]);
 
@@ -284,6 +299,7 @@ const Dashboard = () => {
       lineGraphAccount("Debit"),
       lineGraphAccount("Credit"),
       lineGraphAccount("Savings");
+      monthlyCalendarfunction();
   }, [accountList, budgetTriggerFetch]);
 
   return (
@@ -307,6 +323,11 @@ const Dashboard = () => {
         setBudgetList={setBudgetList}
         budgetList={budgetList}
       />{" "}
+      <div>
+        <Calendar
+        tileContent={tileContent}
+        />
+      </div>
       <br></br>
       <BudgetItem budgetList={budgetList} accountList={accountList} />
       <br></br>

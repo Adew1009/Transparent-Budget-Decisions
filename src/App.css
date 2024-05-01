@@ -250,6 +250,14 @@
   color: #555; 
 }
 
+.react-calendar {
+  font-size: 12px;
+}
+
+.react-calendar__tile {
+  height: 80px;
+}
+
 .right-column {
   padding-left: 20px; 
 }
