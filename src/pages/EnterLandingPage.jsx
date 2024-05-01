@@ -224,10 +224,7 @@ const EnterLandingPage = () => {
               New User
             </button>
 
-<<<<<<< HEAD
-            <button className="rounded-button-rtnuser" onClick={returningUser}>
-              Returning User
-=======
+
             <button className="rounded-button-rtnuser" onClick={returningUser}>Returning User</button>
           </div>
 
