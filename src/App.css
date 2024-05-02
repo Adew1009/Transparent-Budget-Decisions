@@ -251,11 +251,11 @@
 }
 
 .react-calendar {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .react-calendar__tile {
-  height: 80px;
+  height: 100px;
 }
 
 .right-column {

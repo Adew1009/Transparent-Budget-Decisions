@@ -19,6 +19,8 @@ import BudgetItem from "@/components/BudgetItem";
 import LineChart from "@/components/LineChart";
 import CalendarChart from "@/components/CalendarChart";
 import Calendar from "react-calendar";
+import { BudgetSheet } from "@/components/BudgetSheet";
+import { MonthlyExpensesSheet } from "@/components/MonthlyExpenseSheet";
 
 const Dashboard = () => {
   const [user, loading] = useAuthState(auth);
@@ -269,17 +271,45 @@ const Dashboard = () => {
 
   const tileContent = ({ date }) => {
     const dayOfTheMonth = date.getDate();
-    const bill = monthlyCalendar.find((bill) => bill.transactionDayOfTheMonth === dayOfTheMonth);
-    if (bill) {
+    const bills = monthlyCalendar.filter((bill) => bill.transactionDayOfTheMonth === dayOfTheMonth);
+    if (bills && bills.length === 1) {
+      const bill = bills[0];
+      let emoji;
+      const lowercaseName = bill.transactionName.toLowerCase();
+      if (lowercaseName.includes("rent") || lowercaseName.includes("mortgage")) {
+        emoji = "🏠";
+      } else if (lowercaseName.includes("cell phone")) {
+        emoji = "📱" ;
+      } else if (lowercaseName.includes("car")) {
+        emoji = "🚗";
+      } else if (lowercaseName.includes("internet") || lowercaseName.includes("cable")) {
+        emoji = "🛜"
+      } else if (lowercaseName.includes("gym") || lowercaseName.includes("fitness")) {
+        emoji = "🏋️";
+      } else if (lowercaseName.includes("student") || lowercaseName.includes("school")) {
+        emoji = "🎓"      
+      } else {
+        emoji = "🎯";
+      }
       return (
         <p>
-          {bill.transactionName}: ${bill.transactionAmount}
+          <span style={{ fontSize: "1.5em" }}>{emoji}</span>{bill.transactionName}: ${bill.transactionAmount}
         </p>
       );
+    } else if (bills && bills.length > 1) {
+      const totalAmount = bills.reduce((total, bill) => total + parseFloat(bill.transactionAmount), 0);
+      return (
+        <p>
+          Multiple bills ❌({bills.length})
+          ${totalAmount}
+        </p>
+      );
+    } else {
+      return null;
     }
-    return null;
   }
 
+  
   useEffect(() => {
     if (!firstRenderRef.current) {
       getAccountList(); // Call getAccountList on subsequent renders
@@ -304,33 +334,52 @@ const Dashboard = () => {
 
   return (
     <>
-      <TransactionInputDialog
-        uid={uid}
-        triggerFetch={triggerFetch}
-        setTriggerFetch={setTriggerFetch}
-        accountList={accountList}
-        setAccountList={setAccountList}
-        setBudgetList={setBudgetList}
-        budgetList={budgetList}
-      />
-      <br></br>
-      <CreateBudgetDialog
-        uid={uid}
-        triggerFetch={triggerFetch}
-        setTriggerFetch={setTriggerFetch}
-        accountList={accountList}
-        setAccountList={setAccountList}
-        setBudgetList={setBudgetList}
-        budgetList={budgetList}
-      />{" "}
-      <div>
-        <Calendar
-        tileContent={tileContent}
+      <div
+        className="w-full"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+        }}
+      >
+        <TransactionInputDialog
+          uid={uid}
+          triggerFetch={triggerFetch}
+          setTriggerFetch={setTriggerFetch}
+          accountList={accountList}
+          setAccountList={setAccountList}
+          setBudgetList={setBudgetList}
+          budgetList={budgetList}
+        />
+        <CreateBudgetDialog
+          uid={uid}
+          triggerFetch={triggerFetch}
+          setTriggerFetch={setTriggerFetch}
+          accountList={accountList}
+          setAccountList={setAccountList}
+          setBudgetList={setBudgetList}
+          budgetList={budgetList}
+        />{" "}
+        <BudgetSheet
+          accountList={accountList}
+          budgetList={budgetList}
+          uid={uid}
+          triggerFetch={triggerFetch}
+          setTriggerFetch={setTriggerFetch}
+          budgetTriggerFetch={budgetTriggerFetch}
+          setBudgetTriggerFetch={setBudgetTriggerFetch}
+        />{" "}
+        <MonthlyExpensesSheet
+          uid={uid}
+          triggerFetch={triggerFetch}
+          setTriggerFetch={setTriggerFetch}
+          accountList={accountList}
+          setAccountList={setAccountList}
+          monthlyExpenses={monthlyExpenses}
         />
       </div>
-      <br></br>
+      <br></br> <br></br>
       <BudgetItem budgetList={budgetList} accountList={accountList} />
-      <br></br>
       <AccordionElement
         setBudgetList={setBudgetList}
         budgetList={budgetList}
@@ -361,6 +410,12 @@ const Dashboard = () => {
         creditAmounts={creditAmounts}
         creditYear={creditYear}
       />
+      <div className="flex justify-center">
+        <Calendar
+        className="w-50 rounded-xl"
+        tileContent={tileContent}
+        />
+      </div>
     </>
   );
 };
