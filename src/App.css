@@ -420,14 +420,29 @@
   transform-origin: 50%;
 }
 
+.picture-adjust1 {
+  width: 129px;
+  height: 129px;
+}
+
+.picture-adjust2 {
+  width: 132px;
+  height: 132px;
+}
+
+.picture-adjust3 {
+  width: 130px;
+  height: 130px;
+}
+
 .picture-adjust4 {
-  width: 123px;
-  height: 123px;
+  width: 125px;
+  height: 125px;
 }
 
 .picture-adjust5 {
-  width: 126px;
-  height: 126px;
+  width: 124px;
+  height: 124px;
 }
 
 .picture-adjust6 {
