@@ -13,7 +13,7 @@ Transparent Budget Decision is built on React JS front-end incorporating Google 
 
 ```
 > git clone
-> cd react-firebase
+> cd Transparent-Budget-Decisions
 > npm install
 ```
 
