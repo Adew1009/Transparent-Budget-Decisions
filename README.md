@@ -69,8 +69,10 @@ Transparent Budget Decision is built on React JS front-end incorporating Google 
 <div align="center">
     <img><img src="https://github.com/Adew1009/Transparent-Budget-Decisions/blob/main/Planning.png" height=50% width=70%>
     </div>
-<div align="left">
+
 ## Authors
+<div align="left">
+
 
 - **Saul Alvarez** - [SaulAlvarezOrtega](https://github.com/SaulAlvarezOrtega)
 - **Jorge Ayala** - [Jorge96273](https://github.com/Jorge96273)
