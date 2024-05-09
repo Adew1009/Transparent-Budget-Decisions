@@ -62,13 +62,13 @@ Transparent Budget Decision is built on React JS front-end incorporating Google 
 
 <div align="center">
     <img><img src="https://github.com/Adew1009/Transparent-Budget-Decisions/blob/main/sketch.png" height=50% width=70%
-    <d / iv>
+    </ div>
 
 ## Planning MoSCoW Decisions
 
 <div align="center">
     <img><img src="https://github.com/Adew1009/Transparent-Budget-Decisions/blob/main/Planning.png" height=50% width=70%
-    <d / iv>
+    </ div>
 
 ## Authors
 
