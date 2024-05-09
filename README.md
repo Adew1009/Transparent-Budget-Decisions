@@ -2,9 +2,9 @@
 
 ## Personal Finance Tracker
 
-### A web page to track your personal finances and see how your money is being spent
+### A Web Page to track your finances and see how your money is being spent
 
-Transparent Budget Decision is built on React JS front-end incorporating Google Firebase Authentication, Firestore, and an a chat bot.
+Transparent Budget Decision is built on React JS front-end incorporating Google Firebase Authentication, Firestore, and a chatbot.
 
 ### Getting Started
 
@@ -61,13 +61,13 @@ Transparent Budget Decision is built on React JS front-end incorporating Google 
 ## Initial Design Sketch
 
 <div align="center">
-    <img><img src="https://github.com/Adew1009/Transparent-Budget-Decisions/blob/main/sketch.png" height=50% width=70%
+    <img><img src="https://github.com/Adew1009/Transparent-Budget-Decisions/blob/main/sketch.png" height=50% width=70%>
     </ div>
 
 ## Planning MoSCoW Decisions
 
 <div align="center">
-    <img><img src="https://github.com/Adew1009/Transparent-Budget-Decisions/blob/main/Planning.png" height=50% width=70%
+    <img><img src="https://github.com/Adew1009/Transparent-Budget-Decisions/blob/main/Planning.png" height=50% width=70%>
     </ div>
 
 ## Authors
