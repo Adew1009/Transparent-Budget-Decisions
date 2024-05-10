@@ -72,7 +72,7 @@ const AboutPage = () => {
               <p className="bio shadow">Jose Sandoval, Army Veteran turned Full-Stack Software Engineer, worked on front-end development and UI design. From Cars & Coffee to Code & Coffee, out here sharing passions!</p>
             )}
             {nameWithAngle270 === "Mike" && (
-              <p className="bio shadow">Mike Durell, Navy Intelligence Veteran turned Full-Stack Software Engineer, worked on the animations and styling for the home, login/signup, and about us pages.</p>
+              <p className="bio shadow">Mike Durell, Navy Intelligence Veteran turned Full-Stack Software Engineer, worked on the animations and styling for the Home, Login/Signup, and Meet the Team pages.</p>
             )}
             {nameWithAngle270 === "Weston" && (
               <p className="bio shadow">Weston Kelly, Marine Corps Veteran turned Full-Stack Software Engineer, worked on authentication, demo video, chart and calendar functionality for the application.</p>
@@ -95,8 +95,8 @@ const AboutPage = () => {
           style={{ transform: `rotate(${cylinderRotation}deg)` }}
           >
           <div
-            className="hole"
-            style={{ ...getHoleStyle(-87.5, 143)}}
+            className="hole picture-adjust1"
+            style={{ ...getHoleStyle(-96, 144)}}
             >
             {nameWithAngle270 === "Jose" && (
               <div
@@ -113,8 +113,8 @@ const AboutPage = () => {
             <img src={Jose} alt="Jose" />
           </div>
           <div
-            className="hole"
-            style={{ ...getHoleStyle(-29.5, 149)}}
+            className="hole picture-adjust2"
+            style={{ ...getHoleStyle(-33, 139)}}
             >
             {nameWithAngle270 === "Mike" && (
               <div
@@ -131,8 +131,8 @@ const AboutPage = () => {
             <img src={Mike} alt="Mike" />
           </div>
           <div
-            className="hole"
-            style={{ ...getHoleStyle(26, 150)}}
+            className="hole picture-adjust3"
+            style={{ ...getHoleStyle(31.5, 139)}}
             >
             {nameWithAngle270 === "Weston" && (
               <div
@@ -150,7 +150,7 @@ const AboutPage = () => {
           </div>
           <div
             className="hole picture-adjust4"
-            style={{ ...getHoleStyle(84, 143)}}
+            style={{ ...getHoleStyle(92.5, 144.5)}}
             >
             {nameWithAngle270 === "Saul" && (
               <div
@@ -168,7 +168,7 @@ const AboutPage = () => {
           </div>
           <div
             className="hole picture-adjust5"
-            style={{ ...getHoleStyle(147, 137)}}
+            style={{ ...getHoleStyle(150, 150)}}
             >
             {nameWithAngle270 === "Jorge" && (
               <div
@@ -186,7 +186,7 @@ const AboutPage = () => {
           </div>
           <div
             className="hole picture-adjust6"
-            style={{ ...getHoleStyle(211, 138)}}
+            style={{ ...getHoleStyle(206.5, 151)}}
             >
             {nameWithAngle270 === "Andrew" && (
               <div
