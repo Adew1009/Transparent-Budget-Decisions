@@ -17,7 +17,7 @@ Transparent Budget Decision is built on React JS front-end incorporating Google 
 > npm install
 ```
 
-### How to Deploy with Googel Firebase
+### How to Deploy with Google Firebase
 
 1. Install **Firebase Tools** globally.
 
@@ -31,13 +31,13 @@ Transparent Budget Decision is built on React JS front-end incorporating Google 
 > firebase login
 ```
 
-3. Navigate to your cloned repository and initialize firebase.
+3. Navigate to your cloned repository and initialize Firebase.
 
 ```
 > firebase init
 ```
 
-4. Build you deployment file.
+4. Build your deployment file.
 
 ```
 > npm run build
